@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+service UserAuthService {
+  rpc SignUp (SignUpRequest) returns (Empty);
+  rpc SignIn (SignInRequest) returns (SignInResponse);
+  rpc CreateUser (CreateUserRequest) returns (Empty);
+  rpc GetUser (GetUserRequest) returns (User);
+}
+
+message SignUpRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignInRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignInResponse {
+  string jwt = 1;
+}
+message CreateUserRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message Empty {
+
+}
+
+
